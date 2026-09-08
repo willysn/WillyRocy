@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 👈 clave -->
+  <title>Willian & Rocío - Nuestra Boda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #121212;
+      color: #fdfaf5;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Portada */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background-image: url('principal.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 50px 25px;
+      border-radius: 15px;
+      max-width: 90%;
+      margin: auto;
+    }
+
+    .names {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(40px, 8vw, 72px); /* 👈 se adapta */
+      color: #d4af37;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-size: clamp(16px, 3vw, 22px);
+      margin-bottom: 25px;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: clamp(14px, 3vw, 18px);
+      color: #d4af37;
+    }
+
+    .countdown span {
+      display: block;
+      font-size: clamp(24px, 6vw, 40px);
+      font-weight: bold;
+      color: #fff;
+    }
+
+    section {
+      padding: 50px 20px;
+      border-bottom: 1px solid #333;
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(26px, 5vw, 42px);
+      color: #d4af37;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: clamp(14px, 3vw, 18px);
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+
+    img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+      margin: 20px auto;
+      display: block;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background-color: #d4af37;
+      color: #121212;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: background 0.3s;
+      font-size: clamp(16px, 4vw, 20px);
+    }
+
+    .btn:hover {
+      background-color: #b7950b;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      padding: 30px;
+      font-size: clamp(12px, 3vw, 16px);
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Portada -->
+  <section class="hero">
+    <div class="overlay">
+      <h1 class="names">William & Rocío</h1>
+      <p class="subtitle">30.09.27 | Nuestra Boda </p>
+      <div id="countdown" class="countdown"></div>
+    </div>
+  </section>
+
+  <!-- Secciones -->
+  <section>
+    <h2>¡Nos Casamos!</h2>
+    <p>Después de una hermosa historia de amor, hemos decidido unir nuestras vidas en matrimonio.</p>
+    <p>Queremos compartir este día tan especial contigo.</p>
+    <p>Con cariño, Willian & Rocío</p>
+  </section>
+
+  <section>
+    <h2>¿Dónde & Cuándo?</h2>
+    <img src="iglecia.png" alt="Ceremonia Religiosa">
+    <p>📍 Ceremonia Religiosa: Lugar por confirmar</p>
+    <p>🕓 Hora  : 00:00 PM</p>
+    <img src="restaurante.png" alt="Recepción">
+    <p>🎉 Recepción a seguir </p>
+    <p>🎉 Lugar :</p>
+  </section>
+
+  <section>
+    <h2>Codigo de  bestimenta-</h2>
+    <p>Formal – Color blanco reservado para la novia y novio</p>
+  </section>
+
+  <section>
+    <h2>Confirma tu Asistencia</h2>
+    <p>Confirma antes del 01 de agosto de 2027</p>
+    <a href="https://wa.me/573123724719" class="btn">Confirmar por WhatsApp</a>
+  </section>
+
+  <section>
+    <h2>Mesa de Regalos</h2>
+    <p>Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con nosotros, te dejamos nuestras opciones.</p>
+    <p>Nequi</p>
+    <p>$$$$$</p>
+  </section>
+
+  <section>
+    <h2>   que mas ponemos Amor</h2>
+    <p>linea de tiempo</p>
+    <p>fotos y videos</p>
+  </section>
+
+  <footer>
+    <p>El mejor regalo es tu presencia 💖</p>
+    <p>W & R</p>
+  </footer>
+
+  <!-- Script cuenta regresiva -->
+  <script>
+    const eventDate = new Date("August 30, 2027 18:30:00").getTime();
+    const countdown = document.getElementById("countdown");
+
+    setInterval(function() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `
+        <div><span>${days}</span>DÍAS</div>
+        <div><span>${hours}</span>HORAS</div>
+        <div><span>${minutes}</span>MINUTOS</div>
+        <div><span>${seconds}</span>SEGUNDOS</div>
+      `;
+
+      if (distance < 0) {
+        countdown.innerHTML = "¡Ya llegó el gran día!";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
